@@ -23,9 +23,8 @@ pipeline {
                 secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]])
 
-                {
-			properties([parameters([choice(choices: ['approve', 'destroy'], description: 'Choose Apply or Destroy?', name: 'action')])])
-		}
+                script { properties([parameters([choice(choices: ['approve', 'destroy'], description: 'Choose Apply or Destroy?', name: 'action')])])
+                    }   
                 {
                 echo "Terraform action is --> ${action}"
                 /* groovylint-disable-next-line GStringExpressionWithinString */
