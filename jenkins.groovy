@@ -17,9 +17,9 @@ pipeline {
         stage ('terraform Action') {
             steps {
 
-                script { properties([parameters([choice(choices: ['approve', 'destroy'], description: 'Choose Apply or Destroy?', name: 'action')])])
+                script { properties([parameters([choice(choices: ['apply', 'destroy'], description: 'Choose Apply or Destroy?', name: 'action')])])
                     }   
-                    
+
                 withCredentials([[
                 $class: 'AmazonWebServicesCredentialsBinding',
                 credentialsId: "jenkins_terraform",
